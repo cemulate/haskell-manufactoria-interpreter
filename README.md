@@ -7,7 +7,7 @@ Usage is:
 
 Where the third argument selects how the input will be read and printed back out in the end
 
-* `Color` expects input in the form of color sequences consisting of (upper case or lower case) characters from `R`, `B`, `G`, `Y`
+* `Color` expects input in the form of color sequences consisting of (upper case or lower case) characters from `RBGY`
 * `Binary` expects input in the form of binary strings (using the convention `Red=0, Blue=1`)
 * `Decimal` expects input in the form of a decimal number, which will be converted to binary by the same convention
 
