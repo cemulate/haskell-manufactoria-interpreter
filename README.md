@@ -20,5 +20,5 @@ Any of the start and end characters there are still accepted, but their meanings
 
 The program in `test1.txt` will output a tape consisting of the last character in the input tape:
 
-    \> runhaskell Manufactoria.hs test/test1.txt RRBBBGGYYGY Color
+    > runhaskell Manufactoria.hs test/test1.txt RRBBBGGYYGY Color
     Accepted: True | Final tape: Y
