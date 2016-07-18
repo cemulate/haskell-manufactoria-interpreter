@@ -13,9 +13,12 @@ Where the third argument selects how the input will be read and printed back out
 
 `programFile` should be a text file containing a program in the [Manufactoria Esolang](https://esolangs.org/wiki/Manufactoria) syntax.
 
+**Note**: This implementation makes a small change to the syntax described in the [Manufactoria Esolang](https://esolangs.org/wiki/Manufactoria).
+Any of the start and end characters there are still accepted, but their meanings are ignored, as input and output representation is specified by the command line argument.
+
 #### Example
 
-The program in `test1.txt` will accept and output a tape consisting of the last character in the input tape:
+The program in `test1.txt` will output a tape consisting of the last character in the input tape:
 
     \> runhaskell Manufactoria.hs test/test1.txt RRBBBGGYYGY Color
     Accepted: True | Final tape: Y
