@@ -6,7 +6,7 @@ import Program
 import Interpreter
 
 main = do
-    (argFile, argInput, argMode) <- getArgs
+    (argFile, argMode, argInput) <- getArgs
 
     progText <- readFile argFile
 

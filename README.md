@@ -3,9 +3,9 @@
 An implementation of the [Manufactoria Esolang](https://esolangs.org/wiki/Manufactoria).
 Usage is:
 
-    runhaskell Manufactoria.hs programFile input [Color|Binary|Decimal]
+    runhaskell Manufactoria.hs programFile [Color|Binary|Decimal] input
 
-Where the third argument selects how the input will be read and printed back out in the end
+Where the second argument selects how the input will be read and printed back out in the end
 
 * `Color` expects input in the form of color sequences consisting of (upper case or lower case) characters from `RBGY`
 * `Binary` expects input in the form of binary strings (using the convention `Red=0, Blue=1`)
@@ -20,5 +20,5 @@ Any of the start and end characters there are still accepted, but their meanings
 
 The program in `test1.txt` will output a tape consisting of the last character in the input tape:
 
-    > runhaskell Manufactoria.hs test/test1.txt RRBBBGGYYGY Color
+    > runhaskell Manufactoria.hs test/test1.txt Color RRBBBGGYYGY
     Accepted: True | Final tape: Y
