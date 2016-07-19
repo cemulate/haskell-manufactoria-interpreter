@@ -1,5 +1,3 @@
-module Manufactoria where
-
 import System.SimpleArgs
 
 import Tape
