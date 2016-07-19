@@ -1,4 +1,4 @@
-module Input where
+module Input (parseProgram) where
 
 import Data.List
 import Data.Array

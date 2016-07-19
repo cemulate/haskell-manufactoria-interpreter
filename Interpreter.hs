@@ -1,4 +1,4 @@
-module Interpreter where
+module Interpreter (runProgram, MResult(MResult)) where
 
 import Data.List
 import Data.Array

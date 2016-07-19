@@ -7,6 +7,7 @@ import Data.Array
 
 type MProgram = Array (Int, Int) Cell
 
+-- Builds the default program within a square of side length n (start at the top middle, end at the bottom middle, everywhere else empty)
 defaultProgram :: Int -> MProgram
 defaultProgram n = array ((0, 0), (lst, lst)) [((i, j), gen i j) | i <- [0..lst], j <- [0..lst]]
     where
@@ -17,5 +18,6 @@ defaultProgram n = array ((0, 0), (lst, lst)) [((i, j), gen i j) | i <- [0..lst]
             | (i == cx) && (j == (n-1)) = dfCell End
             | otherwise                 = dfCell Empty
 
+-- Return a modified program with the cell inserted at the location
 place :: (Int, Int) -> Cell -> MProgram -> MProgram
 place loc c p = p // [(loc, c)]
