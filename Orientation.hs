@@ -7,23 +7,20 @@ isMir :: Orientation -> Bool
 isMir (Reg _) = False
 isMir (Mir _) = True
 
--- Returns the next clockwise facing direction
+-- Returns the next clockwise facing direction (90 degree increments)
 turnCW :: Direction -> Direction
 turnCW DLeft = DUp
 turnCW DUp = DRight
 turnCW DRight = DDown
 turnCW DDown = DLeft
 
--- Same for counter-clockwise
+-- Turn counter clockwise (== clockwise 3 times)
 turnCCW :: Direction -> Direction
 turnCCW = turnCW . turnCW . turnCW
 
--- Turn around
+-- Turn around (== clockwise twice)
 turnOpp :: Direction -> Direction
-turnOpp DLeft = DRight
-turnOpp DRight = DLeft
-turnOpp DUp = DDown
-turnOpp DDown = DUp
+turnOpp = turnCW . turnCW
 
 -- Adjust indices by moving in a direction
 moveDir :: Direction -> (Int, Int) -> (Int, Int)
