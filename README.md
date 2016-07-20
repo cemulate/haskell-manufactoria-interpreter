@@ -27,6 +27,7 @@ The program in `test1.txt` will output a tape consisting of the last character i
 
 This interpreter makes a few changes to the [Manufactoria Esolang](https://esolangs.org/wiki/Manufactoria) spec:
 
+* The robot moves **down** from the start tile at the beginning, as this is the behavior in the original game. The original esolong specifies that the robot moves right from the start.
 * `@`, `0`, and `&` are all accepted as start characters, but their meaning is discarded, since the format of the input and output is specified by an argument on the command line.
 * `!`, `$`, `;`, and `.` are all accepted as end characters, but their meaning is also discarded. The program always prints the acceptance and the final tape in the format specified.
 * The original spec uses `#` to represent a bridge, a tile that keeps the "robot" moving in the same direction. However, this cannot represent all valid Manufactoria programs. It is possible in the original game to move onto a crossed conveyor tile and move backward to where you came from (that is, the *axis* of your movement is determined by the direction you enter, but not the destination). As a result, `#` still works with its intended meaning, but we also introduce four new explicit characters to capture all possible conveyor crossing possibilities:
