@@ -1,6 +1,6 @@
 ## Haskell Manufactoria Interpreter
 
-An implementation of the [Manufactoria Esolang](https://esolangs.org/wiki/Manufactoria).
+An implementation of the [Manufactoria Esolang](https://esolangs.org/wiki/Manufactoria) with extensions/changes as defined below.
 Usage is:
 
     runhaskell Manufactoria.hs programFile [Color|Binary|Decimal] input
