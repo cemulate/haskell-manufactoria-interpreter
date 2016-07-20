@@ -31,7 +31,11 @@ makeCell c
     | c == '<'      = Cell Conveyor (Reg DLeft)
     | c == '^'      = Cell Conveyor (Reg DUp)
     | c == 'v'      = Cell Conveyor (Reg DDown)
-    | c == '#'      = dfCell CrossConveyor
+    | c == '#'      = dfCell Bridge
+    | c == ']'      = Cell CrossConveyor (Reg DDown)
+    | c == '}'      = Cell CrossConveyor (Reg DRight)
+    | c == '{'      = Cell CrossConveyor (Reg DUp)
+    | c == '['      = Cell CrossConveyor (Reg DLeft)
     | c == 'r'      = Cell (Write Red) (Reg DRight)
     | c == 'c'      = Cell (Write Red) (Reg DUp)
     | c == 'R'      = Cell (Write Red) (Reg DLeft)

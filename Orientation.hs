@@ -18,6 +18,13 @@ turnCW DDown = DLeft
 turnCCW :: Direction -> Direction
 turnCCW = turnCW . turnCW . turnCW
 
+-- Turn around
+turnOpp :: Direction -> Direction
+turnOpp DLeft = DRight
+turnOpp DRight = DLeft
+turnOpp DUp = DDown
+turnOpp DDown = DUp
+
 -- Adjust indices by moving in a direction
 moveDir :: Direction -> (Int, Int) -> (Int, Int)
 moveDir DLeft (x,y) = (x-1, y)

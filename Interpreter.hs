@@ -29,15 +29,25 @@ branch tHead (Cell t o) = case t of
         turnTo Blue = if (isMir o) then turnCW else turnCCW    -- Turn counterclockwise to get to blue terminal, but if mirrored, turn clockwise
         turnTo Yellow = if (isMir o) then turnCW else turnCCW  -- Turn counterclockwise to get to yellow terminal, but if mirrored, turn clockwise
 
+crossConveyor :: Direction -> Cell -> (Direction, TapeAction)
+crossConveyor d (Cell _ (Reg cd))
+    | d == cd            = (cd, None)
+    | d == cd2           = (cd2, None)
+    | (turnOpp d) == cd  = (cd, None)
+    | (turnOpp d) == cd2 = (cd2, None)
+    where
+        cd2 = turnCCW cd
+
 evalCell :: Cell -> Maybe TapeChar -> Direction -> (Direction, TapeAction)
 evalCell c@(Cell t o) tHead facing = case t of
-    Start -> (DDown, None)           -- Face down on start; do nothing to tape
-    Conveyor -> (dir o, None)        -- Face conveyor direction; do nothing to tape
-    CrossConveyor -> (facing, None)  -- Face same direction; do nothing to tape
+    Start -> (DDown, None)                    -- Face down on start; do nothing to tape
+    Conveyor -> (dir o, None)                 -- Face conveyor direction; do nothing to tape
+    Bridge -> (facing, None)                  -- Face same direction; do nothing to tape
+    CrossConveyor -> crossConveyor facing c   -- Pass to CrossConveyor logic
     (Branch _) -> case tHead of
-        Nothing -> (dir o, None)     -- Tape is empty, face neutral direction; do nothing to tape
-        (Just v) -> branch v c       -- Tape has a head, pass to branch logic
-    (Write x) -> (dir o, Append x)   -- Face writer direction; append value
+        Nothing -> (dir o, None)              -- Tape is empty, face neutral direction; do nothing to tape
+        (Just v) -> branch v c                -- Tape has a head, pass to branch logic
+    (Write x) -> (dir o, Append x)            -- Face writer direction; append value
 
 
 evalProgram :: MProgram -> (State MState) MResult
